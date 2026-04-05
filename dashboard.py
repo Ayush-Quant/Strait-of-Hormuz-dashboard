@@ -23,9 +23,11 @@ st.markdown("""
         color: #e2e8f0 !important;
     }
     
-    /* FIX: Ensure Dropdown Selectbox Items are Readable (Dark text on Light dropdown) */
-    [data-baseweb="popover"] span, [data-baseweb="popover"] div, ul[role="listbox"] li {
-        color: #0f172a !important;
+    /* FIX: Ensure Dropdown Selectbox Items are Readable (White text on dark dropdown) */
+    [data-baseweb="popover"] span, [data-baseweb="popover"] div, 
+    ul[role="listbox"] li, [data-baseweb="menu"] li,
+    [data-baseweb="select"] span, [data-baseweb="popover"] li {
+        color: #f8fafc !important;
     }
     
     /* FIX: Make the Metric values (e.g. "50 SHIPS/DAY") bright white */
