@@ -162,10 +162,10 @@ for (name, date), color in zip(event_dates.items(), colors):
     fig_timeline.add_vline(x=date, line_dash="dash", line_color=color, line_width=2)
     fig_timeline.add_annotation(x=date, y=55, text=f"<b>{name}</b>", showarrow=False, bgcolor=color, font=dict(color="#ffffff"))
 
-fig_timeline.update_layout(template='plotly_dark', margin=dict(l=0, r=0, t=40, b=0), plot_bgcolor="#0f172a", paper_bgcolor="#0f172a")
+fig_timeline.update_layout(template='plotly_dark', margin=dict(l=0, r=0, t=40, b=0), plot_bgcolor="#0f172a", paper_bgcolor="#0f172a", dragmode=False)
 fig_timeline.update_yaxes(showgrid=True, gridcolor='rgba(255,255,255,0.05)')
 fig_timeline.update_xaxes(showgrid=False)
-st.plotly_chart(fig_timeline, use_container_width=True)
+st.plotly_chart(fig_timeline, use_container_width=True, config={'displayModeBar': False})
 
 # --- SECTION II: THE DOMINO EFFECT ---
 st.markdown("<hr>", unsafe_allow_html=True)
@@ -182,9 +182,9 @@ else:
     cargo_df.rename(columns={'index': 'date'}, inplace=True)
 
 fig_cargo = px.area(cargo_df, x='date', y='transit_count', color_discrete_sequence=['#ef4444'])
-fig_cargo.update_layout(template='plotly_dark', height=350, plot_bgcolor="#0f172a", paper_bgcolor="#0f172a", margin=dict(l=0, r=0, t=20, b=0))
+fig_cargo.update_layout(template='plotly_dark', height=350, plot_bgcolor="#0f172a", paper_bgcolor="#0f172a", margin=dict(l=0, r=0, t=20, b=0), dragmode=False)
 fig_cargo.update_yaxes(showgrid=True, gridcolor='rgba(255,255,255,0.05)')
-st.plotly_chart(fig_cargo, use_container_width=True)
+st.plotly_chart(fig_cargo, use_container_width=True, config={'displayModeBar': False})
 
 # --- SECTION III: THE CONSUMER SHOCK (SIMULATION) ---
 st.markdown("<hr>", unsafe_allow_html=True)
@@ -265,9 +265,9 @@ with col_sim2:
     fig_econ.add_vrect(x0=20, x1=60, fillcolor="#f59e0b", opacity=0.05, layer="below", line_width=0, annotation_text="Strategic Reserves Low", annotation_position="top left", annotation_font_color="#f59e0b")
     fig_econ.add_vrect(x0=60, x1=180, fillcolor="#ef4444", opacity=0.1, layer="below", line_width=0, annotation_text="Global Supply Starvation", annotation_position="top left", annotation_font_color="#ef4444")
     
-    fig_econ.update_layout(template='plotly_dark', height=320, plot_bgcolor="#0f172a", paper_bgcolor="#0f172a", margin=dict(l=0, r=0, t=40, b=0))
+    fig_econ.update_layout(template='plotly_dark', height=320, plot_bgcolor="#0f172a", paper_bgcolor="#0f172a", margin=dict(l=0, r=0, t=40, b=0), dragmode=False)
     fig_econ.update_yaxes(showgrid=True, gridcolor='rgba(255,255,255,0.05)')
     
-    st.plotly_chart(fig_econ, use_container_width=True)
+    st.plotly_chart(fig_econ, use_container_width=True, config={'displayModeBar': False})
 
 st.markdown("<br><hr><p style='text-align: center; color: #475569; font-size: 0.8rem; font-family: monospace;'>END OF REPORT.</p>", unsafe_allow_html=True)
