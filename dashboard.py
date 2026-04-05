@@ -4,7 +4,7 @@ import plotly.express as px
 import plotly.graph_objects as go
 import numpy as np
 import os
-import streamlit.components.v1 as components
+
 
 # --- PAGE CONFIGURATION ---
 st.set_page_config(page_title="OSINT // STRAIT OF HORMUZ", layout="wide", initial_sidebar_state="collapsed")
@@ -47,6 +47,53 @@ st.markdown("""
     /* Custom divider */
     hr {
         border-color: #334155 !important;
+    }
+    
+    /* ====== MOBILE RESPONSIVE ====== */
+    @media (max-width: 768px) {
+        /* Scale down the giant title */
+        .stApp h1 {
+            font-size: 1.4rem !important;
+            letter-spacing: 0px !important;
+        }
+        .stApp h4 {
+            font-size: 0.9rem !important;
+        }
+        
+        /* Situation report box */
+        .stApp div[style*='border-left: 4px solid #f59e0b'] {
+            font-size: 0.95rem !important;
+            padding: 12px !important;
+        }
+        
+        /* Force Streamlit columns to stack vertically */
+        [data-testid="stHorizontalBlock"] {
+            flex-direction: column !important;
+        }
+        [data-testid="stHorizontalBlock"] > [data-testid="stColumn"] {
+            width: 100% !important;
+            flex: 1 1 100% !important;
+            min-width: 100% !important;
+        }
+        
+        /* Metric cards: make text smaller */
+        [data-testid="stMetricValue"] {
+            font-size: 1.4rem !important;
+        }
+        [data-testid="stMetricLabel"] > div > div > p {
+            font-size: 0.7rem !important;
+        }
+        
+        /* Simulation result cards */
+        .stApp div[style*='min-height: 130px'] {
+            min-height: 100px !important;
+        }
+        .stApp div[style*='min-height: 130px'] h2 {
+            font-size: 1.6rem !important;
+        }
+        .stApp div[style*='min-height: 130px'] h5 {
+            font-size: 0.8rem !important;
+        }
     }
 </style>
 """, unsafe_allow_html=True)
